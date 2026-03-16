@@ -82,6 +82,7 @@ export default class PermissionUtils {
       case 'ohos.permission.DISCOVER_BLUETOOTH':
         return PermissionConstants.PERMISSION_GROUP_BLUETOOTH_ADVERTISE;
       case 'ohos.permission.MANAGE_BLUETOOTH':
+        return PermissionConstants.PERMISSION_GROUP_BLUETOOTH;
       case 'ohos.permission.ACCESS_BLUETOOTH':
         return PermissionConstants.PERMISSION_GROUP_BLUETOOTH_CONNECT;
       case 'ohos.permission.NOTIFICATION_CONTROLLER':
@@ -271,7 +272,6 @@ export default class PermissionUtils {
         break;
       case PermissionConstants.PERMISSION_GROUP_BLUETOOTH_CONNECT:
         let bluetoothConnect: ArrayList<string> = new ArrayList();
-        bluetoothConnect.add('ohos.permission.MANAGE_BLUETOOTH');
         bluetoothConnect.add('ohos.permission.ACCESS_BLUETOOTH');
         callback(bluetoothConnect);
         break;
