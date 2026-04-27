@@ -202,6 +202,10 @@ export class PermissionManager {
                   this.requestResults?.set(PermissionConstants.PERMISSION_GROUP_LOCATION, PermissionUtils.toPermissionStatus(authResult));
                 }
 
+              } else if (permissionName == 'ohos.permission.ACCESS_BLUETOOTH') {
+                let bluetoothStatus = PermissionUtils.toPermissionStatus(authResult);
+                this.requestResults?.set(PermissionConstants.PERMISSION_GROUP_BLUETOOTH, bluetoothStatus);
+                this.requestResults?.set(PermissionConstants.PERMISSION_GROUP_BLUETOOTH_CONNECT, bluetoothStatus);
               } else {
                 // this.requestResults?.set(permission, PermissionUtils.toPermissionStatus(authResult));
                 let hasDialog: boolean | null = null;
