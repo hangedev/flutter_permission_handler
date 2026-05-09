@@ -85,24 +85,41 @@
 
         <filefilterlist>
             <filefilter name="defaultFilter" desc="Files not to check">
-                <filteritem type="filename" name="*.iml|*.json|*.txt" desc="desc files"/>
+                <filteritem type="filename" name="*.iml|*.json|*.txt.metadata|*.sh|*.yaml|*.lock" desc="desc files"/>
                 <filteritem type="filename" name="*.png|*.ico|*.jpg|*.webp|*.ttf|*.enc|*.mp3" desc="app resource files"/>
                 <filteritem type="filename" name="*.so|*.har" desc="engine二进制文件,不影响兼容性"/>
                 <filteritem type="filename" name="*.tgz" desc="hvigor本地插件,不影响兼容性"/>
                 <filteritem type="filename" name="**.json5" desc="配置文件，flutter插件项目编译时会重写覆盖"/>
                 <filteritem type="filename" name="*.md" desc="md文件,不影响兼容性"/>
+                <filteritem type="filepath" name=".*LICENSE" desc="过滤所有LICENSE"/>
                 <filteritem type="filepath" name="projectroot/buildEnv.sh" desc="CI build config file"/>
                 <filteritem type="filepath" name="*/ohos/har/" desc="hvigor本地插件,不影响兼容性"/>
                 <filteritem type="filepath" name="*/ohos/entry/src/main/resources/rawfile/flutter_assets/" desc="资源文件，不影响兼容性"/>
                 <filteritem type="filepath" name="*/ohos/dta/icudtl.dat" desc="ohos字体库文件，不影响兼容性"/>
                 <filteritem type="filepath" name="*/ohos/hvigor/hvigor-wrapper.js" desc="hvigorw编译程序，不影响兼容性"/>
                 <filteritem type="filepath" name="*/ohos/hvigorw.bat" desc="hvigorw编译程序，不影响兼容性"/>
-  
+                <filteritem type="filepath" name=".metadata" desc="metadata文件，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/scripts/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/ios/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/windows/*" desc="原库代码，不影响兼容性"/>
                 <filteritem type='filepath' name="permission_handler_ohos/ohos/permissionhandler/libs/flutter_embedding.har" desc='二进制文件,不影响兼容性'/>
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/dta/icudtl.dat" desc='二进制文件,不影响兼容性'/>
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/har/flutter_embedding.har" desc='二进制文件,不影响兼容性'/>
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/entry/libs/arm64-v8a/libc++_shared.so" desc='二进制文件,不影响兼容性'/>
-                
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/entry/src/main/resources/rawfile/flutter_assets/shaders/ink_sparkle.frag" desc='二进制文件,不影响兼容性'/>
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/entry/src/main/resources/rawfile/flutter_assets/kernel_blob.bin" desc='二进制文件,不影响兼容性'/>
                 <filteritem type='filepath' name="permission_handler_ohos/example/ohos/entry/src/main/resources/rawfile/flutter_assets/NOTICES.Z" desc='二进制文件,不影响兼容性'/>
@@ -122,11 +139,65 @@
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
                 <filteritem type="filename" name="**.json5" desc="配置文件，flutter插件项目编译时会重写覆盖"/>
                 <filteritem type="filepath" name="projectroot/buildEnv.sh" desc="CI build config file"/>
+                <filteritem type="filepath" name=".metadata" desc="metadata文件，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/scripts/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/ios/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/windows/*" desc="原库代码，不影响兼容性"/>
             </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="Filters for copyright header policies">
                 <filteritem type="filepath" name="projectroot/buildEnv.sh" desc="CI build config file"/>
+                <filteritem type="filepath" name=".metadata" desc="metadata文件，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/scripts/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/ios/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/windows/*" desc="原库代码，不影响兼容性"/>
             </filefilter>
             <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">
+                <filteritem type="filepath" name=".metadata" desc="metadata文件，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/scripts/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/android/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_android/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_apple/ios/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/lib/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_platform_interface/test/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/example/*" desc="原库代码，不影响兼容性"/>
+                <filteritem type="filepath" name="permission_handler_windows/windows/*" desc="原库代码，不影响兼容性"/>
             </filefilter>
             <filefilter name="readmeFileNamePolicyFilter" desc="Filters for README file policies">
             </filefilter>
