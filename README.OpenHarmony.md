@@ -22,7 +22,7 @@ Go to the project directory and add the following dependencies in pubspec.yaml
 dependencies:
   permission_handler_ohos:
     git: 
-      url: https://gitcode.com/openharmony-sig/flutter_permission_handler.git
+      url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
       path: permission_handler_ohos
       ref: br_permission_handler_v11.3.1_ohos
       
