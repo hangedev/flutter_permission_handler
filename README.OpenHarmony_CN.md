@@ -23,6 +23,8 @@ dependencies:
   permission_handler:
     git:
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
+      # ref: 根据下方表格选择不同框架适配的TAG版本
+      ref: TAG  # Select a TAG from the TAG version mapping table below
       path: permission_handler
 
 ...
@@ -33,6 +35,14 @@ dependencies:
 ```bash
 flutter pub get
 ```
+
+> TAG 命名规则：`原库版本-ohos-版本号-betax`，不同 TAG 之间的变更详见 CHANGELOG.OpenHarmony.md。实际使用时请将依赖示例中的 `TAG` 替换为下表选择的 TAG。
+
+| Flutter 框架版本 | TAG 名称 | 分支名 |
+|---|---|---|
+| 3.7 | 10.4.3-ohos-1.0.0-beta.1 | master |
+| 3.27 | 11.3.1-ohos-1.0.0-beta.1 | br_permission_handler_v11.3.1_ohos |
+| 3.27 | 12.0.1-ohos-1.0.0-beta.1 | br_v12.0.1_ohos |
 
 <!-- tabs:end -->
 
