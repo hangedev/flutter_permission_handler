@@ -23,6 +23,8 @@ dependencies:
   permission_handler:
     git: 
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
+      # ref: Select the TAG version that matches your Flutter framework version from the table below
+      ref: TAG  # Select a TAG from the TAG version mapping table below
       path: permission_handler
       
 ...
@@ -33,6 +35,14 @@ Execute Command
 ```bash
 flutter pub get
 ```
+
+> TAG naming rule: `original-version-ohos-version-betax`. See CHANGELOG.OpenHarmony.md for changes between TAG versions. Replace `TAG` in the dependency example with the TAG selected from the table.
+
+| Flutter framework version | TAG name | Branch |
+|---|---|---|
+| 3.7 | 10.4.3-ohos-1.0.0-beta.1 | master |
+| 3.27 | 11.3.1-ohos-1.0.0-beta.1 | br_permission_handler_v11.3.1_ohos |
+| 3.27 | 12.0.1-ohos-1.0.0-beta.1 | br_v12.0.1_ohos |
 
 <!-- tabs:end -->
 
