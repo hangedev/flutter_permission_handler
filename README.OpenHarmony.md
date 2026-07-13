@@ -24,7 +24,7 @@ dependencies:
     git: 
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
       path: permission_handler_ohos
-      ref: br_permission_handler_v12.0.1_ohos
+      ref: 12.0.1-ohos-1.0.0-beta.1
       
 ...
 ```
@@ -79,6 +79,8 @@ This document is verified based on the following versions:
 
 
 ## 6. Others
+
+- In SDK 26.0.0.29 (API 26.0.0 Beta) with DevEco Studio 26.0.0.461, requesting the ohos.permission.WRITE_CONTACTS permission may fail and can prevent the HAP from being installed successfully.
 
 ### 6.1 Permission request return value extension
 
