@@ -41,6 +41,7 @@ flutter pub get
 | Flutter 框架版本 | TAG 名称 | 分支名 |
 |---|---|---|
 | 3.7 | 10.4.3-ohos-1.0.0-beta.1 | [master](https://gitcode.com/CPF-Flutter/flutter_permission_handler/tree/master) |
+| 3.22 | 11.3.1-ohos-1.0.0-beta.1 | [br_permission_handler_v11.3.1_ohos](https://gitcode.com/CPF-Flutter/flutter_permission_handler/tree/br_permission_handler_v11.3.1_ohos) |
 | 3.27 | 11.3.1-ohos-1.0.0-beta.1 | [br_permission_handler_v11.3.1_ohos](https://gitcode.com/CPF-Flutter/flutter_permission_handler/tree/br_permission_handler_v11.3.1_ohos) |
 | 3.35 | 12.0.1-ohos-1.0.0-beta.1 | [br_v12.0.1_ohos](https://gitcode.com/CPF-Flutter/flutter_permission_handler/tree/br_v12.0.1_ohos) |
 
