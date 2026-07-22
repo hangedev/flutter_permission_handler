@@ -79,6 +79,7 @@ This document is verified based on the following versions:
 
 
 ## 6. Others
+- In SDK 26.0.0.29 (API 26.0.0 Beta) with DevEco Studio 26.0.0.461, requesting the ohos.permission.WRITE_CONTACTS permission may fail and can prevent the HAP from being installed successfully.
 
 ### 6.1 Permission request return value extension
 
