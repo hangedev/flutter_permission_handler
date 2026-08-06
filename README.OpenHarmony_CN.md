@@ -20,11 +20,12 @@
 ...
 
 dependencies:
-  permission_handler_ohos:
+  permission_handler:
     git:
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
-      path: permission_handler_ohos
-      ref: br_permission_handler_v12.0.1_ohos
+      # ref: 根据下方表格选择不同框架适配的TAG版本
+      ref: TAG  # Select a TAG from the TAG version mapping table below
+      path: permission_handler
 
 ...
 ```
@@ -35,6 +36,14 @@ dependencies:
 flutter pub get
 ```
 
+> TAG 命名规则：`原库版本-ohos-版本号-betax`，不同 TAG 之间的变更详见 CHANGELOG.OpenHarmony.md。实际使用时请将依赖示例中的 `TAG` 替换为下表选择的 TAG。
+
+| Flutter 框架版本 | TAG 名称 | 分支名 |
+|---|---|---|
+|3.7	|10.4.3-ohos-1.0.0-beta.1	|master
+|3.22	|12.0.1-ohos-1.0.0	|br_v12.0.1_ohos
+|3.27	|11.3.1-ohos-1.0.0-beta.1	|br_permission_handler_v11.3.1_ohos
+|3.35	|12.0.1-ohos-1.0.0	|br_v12.0.1_ohos
 <!-- tabs:end -->
 
 ### 1.2 使用案例
@@ -48,9 +57,7 @@ flutter pub get
 
 在以下版本中已测试通过
 
-1.Flutter: 3.22.1-ohos-1.0.1; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
-2.Flutter: 3.35.7-ohos-0.0.1; SDK: 6.0.1(21); IDE: DevEco Studio: 6.0.1.260; ROM: 6.0.0.120 SP6;
-
+1. Flutter: 3.7.12-ohos-1.0.6; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
 
 
 ## 3. API
@@ -82,49 +89,7 @@ flutter pub get
 
 
 ## 6. 其他
-- 在 SDK 26.0.0.29 (API 26.0.0 Beta)、DevEco Studio 26.0.0.461 环境下，申请 ohos.permission.WRITE_CONTACTS 权限可能会失败，并导致 HAP 无法正常安装。
 
-### 6.1 权限请求返回值拓展
-
-> [!TIP] 该库目前在请求和检查权限返回的状态只有 PERMISSION_STATUS_DENIED 和 PERMISSION_STATUS_GRANTED，如需区分返回的 PERMISSION_STATUS_DENIED 是尚未询问还是已拒绝，建议按照以下方案进行区分
-
-**6.1.1 permission_handler_ohos/ohos/src/main/ets/com/baseflow/permissionhandler/PermissionUtils.ets 文件的 toPermissionStatus 方法改为：**
-
-```typescript
-static toPermissionStatus(authResult: number, result:PermissionRequestResult): number {
-  if (authResult == -1 && result.dialogShownResults && result.dialogShownResults.length > 0) {
-    if (result.dialogShownResults[0]){
-      return PermissionConstants.PERMISSION_STATUS_DENIED;
-    } else {
-      return PermissionConstants.PERMISSION_STATUS_NEVER_ASK_AGAIN;
-    }
-  } 
-  if (authResult == 2) {
-    return PermissionConstants.PERMISSION_STATUS_RESTRICTED;
-  }
-return PermissionConstants.PERMISSION_STATUS_GRANTED;
-}
-```
-
-**6.1.2 通过 checkPermissionStatus 去检测权限是 PERMISSION_STATUS_DENIED 的时候，直接调用 requestPermissions 去申请权限：**
-
-- 如果返回 PermissionConstants.PERMISSION_STATUS_DENIED 表示用户第一次拒绝，
-- 如果返回PermissionConstants.PERMISSION_STATUS_NEVER_ASK_AGAIN表示用户已经拒绝过，这是第二次申请，建议引导用户跳转到设置界面，
-- 如果返回PermissionConstants.PERMISSION_GRANTED，表示用户授予了权限。 
-- 如果返回 PERMISSION_STATUS_RESTRICTED 表示请求无效,可能原因有：
-
-    1. 未在设置文件中声明目标权限；
-    2. 权限名非法；
-    3. 部分权限存在特殊申请条件，在申请对应权限时未满足其指定的条件。
-
-**6.1.3 该方案 dart 与 ets 状态对应关系**
-
-| ets                               | dart |
-|-----------------------------------|-------------|
-| PERMISSION_STATUS_DENIED          | PermissionStatus.denied     |
-| PERMISSION_STATUS_GRANTED         | PermissionStatus.granted     |
-| PERMISSION_STATUS_NEVER_ASK_AGAIN | PermissionStatus.permanentlyDenied     |
-| PERMISSION_STATUS_RESTRICTED      | PermissionStatus.restricted     |
 
 ## 7. 开源协议
 
