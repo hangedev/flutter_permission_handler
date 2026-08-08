@@ -20,11 +20,13 @@ Go to the project directory and add the following dependencies in pubspec.yaml
 ...
 
 dependencies:
-  permission_handler_ohos:
+  permission_handler:
     git: 
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
+      # ref: Select the TAG version that matches your Flutter framework version from the table below
+      ref: TAG  # Select a TAG from the TAG version mapping table below
       path: permission_handler_ohos
-      ref: 12.0.1-ohos-1.0.0-beta.1
+
       
 ...
 ```
@@ -34,6 +36,15 @@ Execute Command
 ```bash
 flutter pub get
 ```
+
+> TAG naming rule: `original-version-ohos-version-betax`. See CHANGELOG.OpenHarmony.md for changes between TAG versions. Replace `TAG` in the dependency example with the TAG selected from the table.
+
+| Flutter framework version | TAG name | Branch |
+|---|---|---|
+|3.7	|10.4.3-ohos-1.0.0-beta.1	|master
+|3.22	|12.0.1-ohos-1.0.0	|br_v12.0.1_ohos
+|3.27	|11.3.1-ohos-1.0.0-beta.1	|br_permission_handler_v11.3.1_ohos
+|3.35	|12.0.1-ohos-1.0.0	|br_v12.0.1_ohos
 
 <!-- tabs:end -->
 
@@ -48,8 +59,7 @@ flutter pub get
 
 This document is verified based on the following versions:
 
-1. Flutter: 3.22.1-ohos-1.0.1; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
-2.Flutter: 3.35.7-ohos-0.0.1; SDK: 6.0.1(21); IDE: DevEco Studio: 6.0.1.260; ROM: 6.0.0.120 SP6;
+1. Flutter: 3.7.12-ohos-1.0.6; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
 
 
 ## 3. API
@@ -80,6 +90,8 @@ This document is verified based on the following versions:
 
 ## 6. Others
 
+<<<<<<< HEAD
+=======
 - In SDK 26.0.0.29 (API 26.0.0 Beta) with DevEco Studio 26.0.0.461, requesting the ohos.permission.WRITE_CONTACTS permission may fail and can prevent the HAP from being installed successfully.
 
 ### 6.1 Permission request return value extension
@@ -123,6 +135,7 @@ return PermissionConstants.PERMISSION_STATUS_GRANTED;
 | PERMISSION_STATUS_GRANTED         | PermissionStatus.granted     |
 | PERMISSION_STATUS_NEVER_ASK_AGAIN | PermissionStatus.permanentlyDenied     |
 | PERMISSION_STATUS_RESTRICTED      | PermissionStatus.restricted     |
+>>>>>>> 811e5998bbb689ae9789e67f9e919efd5c645e74
 
 ## 7. License
 
