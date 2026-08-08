@@ -25,7 +25,8 @@ dependencies:
       url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
       # ref: Select the TAG version that matches your Flutter framework version from the table below
       ref: TAG  # Select a TAG from the TAG version mapping table below
-      path: permission_handler
+      path: permission_handler_ohos
+
       
 ...
 ```
@@ -89,6 +90,52 @@ This document is verified based on the following versions:
 
 ## 6. Others
 
+<<<<<<< HEAD
+=======
+- In SDK 26.0.0.29 (API 26.0.0 Beta) with DevEco Studio 26.0.0.461, requesting the ohos.permission.WRITE_CONTACTS permission may fail and can prevent the HAP from being installed successfully.
+
+### 6.1 Permission request return value extension
+
+> [!TIP] Currently, this library only returns two permission statuses when requesting or checking permissions: PERMISSION_STATUS_DENIED and PERMISSION_STATUS_GRANTED. If you need to distinguish whether the returned PERMISSION_STATUS_DENIED means "not yet asked" or "explicitly denied," it is recommended to differentiate them using the following approach:
+
+**6.1.1 Modify the toPermissionStatus method in the file permission_handler_ohos/ohos/src/main/ets/com/baseflow/permissionhandler/PermissionUtils.ets to:**
+
+```typescript
+static toPermissionStatus(authResult: number, result:PermissionRequestResult): number {
+  if (authResult == -1 && result.dialogShownResults && result.dialogShownResults.length > 0) {
+    if (result.dialogShownResults[0]){
+      return PermissionConstants.PERMISSION_STATUS_DENIED;
+    } else {
+      return PermissionConstants.PERMISSION_STATUS_NEVER_ASK_AGAIN;
+    }
+  } 
+  if (authResult == 2) {
+    return PermissionConstants.PERMISSION_STATUS_RESTRICTED;
+  }
+return PermissionConstants.PERMISSION_STATUS_GRANTED;
+}
+```
+
+**6.1.2 When using checkPermissionStatus to detect that a permission status is PERMISSION_STATUS_DENIED, directly call requestPermissions to request the permission:**
+
+- If it returns PermissionConstants.PERMISSION_STATUS_DENIED, it means the user has denied the permission for the first time.
+- If it returns PermissionConstants.PERMISSION_STATUS_NEVER_ASK_AGAIN, it indicates the user has previously denied the permission and this is the second request; in this case, it's recommended to guide the user to the system settings page.
+- If it returns PermissionConstants.PERMISSION_GRANTED, it means the user has granted the permission.
+- If the result is PERMISSION_STATUS_RESTRICTED, the request is invalid. Possible reasons include:
+
+  - The target permission was not declared in the configuration file;
+  - The permission name is invalid;
+  - Certain permissions have special requirements that were not met when requesting them.
+
+**6.1.3 The status mapping between Dart and ETS in this solution:**
+
+| ets                               | dart |
+|-----------------------------------|-------------|
+| PERMISSION_STATUS_DENIED          | PermissionStatus.denied     |
+| PERMISSION_STATUS_GRANTED         | PermissionStatus.granted     |
+| PERMISSION_STATUS_NEVER_ASK_AGAIN | PermissionStatus.permanentlyDenied     |
+| PERMISSION_STATUS_RESTRICTED      | PermissionStatus.restricted     |
+>>>>>>> 811e5998bbb689ae9789e67f9e919efd5c645e74
 
 ## 7. License
 
